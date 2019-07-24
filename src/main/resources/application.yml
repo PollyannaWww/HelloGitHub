@@ -1,0 +1,34 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /cmfz
+    jsp:
+      init-parameters:
+        development: true
+spring:
+  datasource:
+    type: org.apache.commons.dbcp.BasicDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cmfz
+    username: root
+    password: 123456
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  task:
+    execution:
+      pool:
+        keep-alive: 10000000ms
+#  jpa:
+#    database: MySQL
+#    show-sql: true
+#  main:
+#    allow-bean-definition-overriding: true
+mybatis:
+  mapper-locations: classpath:com/baizhi/mapper/*Mapper.xml
+  type-aliases-package: com.baizhi.entity

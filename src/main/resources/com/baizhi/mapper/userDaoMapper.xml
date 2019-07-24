@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.UserDao">
+    <resultMap id="countMap" type="userCount">
+        <id property="name" column="userCity"></id>
+        <result property="value" column="userCount"></result>
+    </resultMap>
+    <select id="selectByConditions" resultMap="countMap">
+        select userCity,count(*) as userCount from c_user where userSex=#{sex} group by userCity
+    </select>
+
+</mapper>
